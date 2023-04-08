@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graz_project/view/screens/Login.dart';
 import 'package:graz_project/view/screens/home_screen.dart';
+import 'package:graz_project/view/screens/zodiac.dart';
 import 'package:page_transition/page_transition.dart';
 
 class tag_screen extends StatefulWidget {
@@ -113,7 +114,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -141,7 +142,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -202,7 +203,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -230,7 +231,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -258,7 +259,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -319,7 +320,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -348,7 +349,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -411,7 +412,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -440,7 +441,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -469,7 +470,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -532,7 +533,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -561,7 +562,7 @@ class _tag_screenState extends State<tag_screen> {
                           ),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -601,7 +602,7 @@ class _tag_screenState extends State<tag_screen> {
                           PageTransition(
                             curve: Curves.linear,
                             type: PageTransitionType.bottomToTop,
-                            child: HomePage(),
+                            child: zodic_screen(),
                           ),
                         );
                       },
