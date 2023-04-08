@@ -45,40 +45,32 @@ class _HomePageState extends State<HomePage> {
             );
           }
         },
-        child: SafeArea(
-          child: Column(children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: kdPagePadding, vertical: kdPagePadding),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  
-                  Icon(
-                    Icons.backspace,
-                    size: 30,
-                    color: Colors.white,
+        child: Column(
+          children: [
+            Container(
+              height: 700,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.black,
+              ),
+              child: Expanded(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30)),
+                  child: PageView(
+                    controller: _controller,
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      SuggestedCard(),
+                      SuggestedCard(),
+                      SuggestedCard(),
+                    ],
                   ),
-                  Icon(
-                    Icons.account_circle,
-                    size: 30,
-                    color: Colors.white,
-                  ),
-                ],
+                ),
               ),
             ),
-            Expanded(
-              child: PageView(
-                controller: _controller,
-                scrollDirection: Axis.vertical,
-                children: [
-                  SuggestedCard(),
-                  SuggestedCard(),
-                  SuggestedCard(),
-                ],
-              ),
-            ),
-          ]),
+          ],
         ),
 
         /* PageView.builder(

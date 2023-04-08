@@ -11,32 +11,24 @@ class SuggestedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
-      child: GestureDetector(
-        onTap: () {},
-        
-        child: VideoViewer( 
-          
-          enableHorizontalSwapingGesture: false,
-          enableVerticalSwapingGesture: false,
-          enableChat: false,
-          style: VideoViewerStyle(
-            
-          ),
-          autoPlay: true,
-          looping: true,
-          enableFullscreenScale: true,
-          
-          // defaultAspectRatio: ,
-          controller: controller,
-          source: {
-            "SubRip Text": VideoSource(
-              video: VideoPlayerController.network(
-                  "https://assets.mixkit.co/videos/preview/mixkit-little-girl-next-to-baskets-of-easter-eggs-48596-large.mp4"),
-            )
-          },
-        ),
+    return GestureDetector(
+      onTap: () {},
+      child: VideoViewer(
+        autoPlay: true,
+        looping: true,
+
+        // defaultAspectRatio: ,
+        controller: controller,
+        source: {
+          "SubRip Text": VideoSource(
+            video: VideoPlayerController.network(
+               /* "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4"*/
+              /*"https://assets.mixkit.co/videos/preview/mixkit-blogging-girl-down-the-street-with-his-cell-34487-large.mp4"*/
+              /*"https://assets.mixkit.co/videos/preview/mixkit-girl-gently-skating-in-a-parking-lot-34548-large.mp4"*/
+              "https://assets.mixkit.co/videos/preview/mixkit-a-woman-walking-on-the-beach-on-a-sunny-day-1208-large.mp4"
+            ),
+          )
+        },
       ),
     );
   }
