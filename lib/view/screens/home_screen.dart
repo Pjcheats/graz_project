@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graz_project/constants/sizes.dart';
 import 'package:graz_project/view/widgets/suggested_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,28 +45,29 @@ class _HomePageState extends State<HomePage> {
             );
           }
         },
-        child: Column(children: [
-          Padding(
-            padding: const EdgeInsets.all(50.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(
-                  Icons.backspace,
-                  size: 30,
-                  color: Colors.white,
-                ),
-                Icon(
-                  Icons.account_circle,
-                  size: 30,
-                  color: Colors.white,
-                ),
-              ],
+        child: SafeArea(
+          child: Column(children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: kdPagePadding, vertical: kdPagePadding),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  
+                  Icon(
+                    Icons.backspace,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.account_circle,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: Container(
-              color: Colors.yellow,
+            Expanded(
               child: PageView(
                 controller: _controller,
                 scrollDirection: Axis.vertical,
@@ -76,8 +78,8 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-          ),
-        ]),
+          ]),
+        ),
 
         /* PageView.builder(
           itemCount: /*widget.videoUrls.length*/ 4,

@@ -23,7 +23,7 @@ class User {
   String profileImageUrl;
   String zodiacSign;
   String gender;
-  String tags;
+  List<String> tags;
   String dob;
   String email;
 

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graz_project/models/user_model.dart';
 import 'package:video_viewer/video_viewer.dart';
@@ -12,17 +11,23 @@ class SuggestedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          color: Colors.black,
-        ),
-        child: VideoViewer(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: GestureDetector(
+        onTap: () {},
+        
+        child: VideoViewer( 
+          
+          enableHorizontalSwapingGesture: false,
+          enableVerticalSwapingGesture: false,
+          enableChat: false,
+          style: VideoViewerStyle(
+            
+          ),
           autoPlay: true,
           looping: true,
           enableFullscreenScale: true,
+          
           // defaultAspectRatio: ,
           controller: controller,
           source: {
