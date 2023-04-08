@@ -14,24 +14,22 @@ class SuggestedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {},
-      child: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          color: Colors.black,
-        ),
-        child: VideoViewer(
-          autoPlay: true,
-          looping: true,
-          enableFullscreenScale: true,
-          // defaultAspectRatio: ,
-          controller: controller,
-          source: {
-            "SubRip Text": VideoSource(
-              video: VideoPlayerController.network(
-                  "https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-with-silver-makeup-39875-large.mp4"),
-            )
-          },
-        ),
+      child: VideoViewer(
+        autoPlay: true,
+        looping: true,
+
+        // defaultAspectRatio: ,
+        controller: controller,
+        source: {
+          "SubRip Text": VideoSource(
+            video: VideoPlayerController.network(
+               /* "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4"*/
+              /*"https://assets.mixkit.co/videos/preview/mixkit-blogging-girl-down-the-street-with-his-cell-34487-large.mp4"*/
+              /*"https://assets.mixkit.co/videos/preview/mixkit-girl-gently-skating-in-a-parking-lot-34548-large.mp4"*/
+              "https://assets.mixkit.co/videos/preview/mixkit-a-woman-walking-on-the-beach-on-a-sunny-day-1208-large.mp4"
+            ),
+          )
+        },
       ),
     );
   }
