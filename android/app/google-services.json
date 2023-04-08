@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1061492378860",
+    "project_id": "graz-project",
+    "storage_bucket": "graz-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061492378860:android:93f9b64800333780c969c9",
+        "android_client_info": {
+          "package_name": "com.example.graz_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061492378860-akifkupfg60ghr6l2m6q7ju010523e91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmPLLD8LEKt28MA78u-76gobs6IOoKVN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061492378860-akifkupfg60ghr6l2m6q7ju010523e91.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

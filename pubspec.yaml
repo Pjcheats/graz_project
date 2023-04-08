@@ -18,6 +18,10 @@ dependencies:
   google_fonts: ^4.0.3
   video_viewer: ^1.2.7
 
+  firebase_core: ^2.9.0
+  firebase_auth: ^4.4.0
+  cloud_firestore: ^4.5.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
