@@ -12,9 +12,8 @@ class LikeGender_screen extends StatefulWidget {
 }
 
 class _LikeGender_screenState extends State<LikeGender_screen> {
-  bool _isPressed1 = false;
-  bool _isPressed2 = false;
-  bool _isPressed4 = false;
+
+  int _index = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +69,7 @@ class _LikeGender_screenState extends State<LikeGender_screen> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              _isPressed1 = !_isPressed1;
+                              _index = 1;
                             });
                           },
                           child: Container(
@@ -86,7 +85,7 @@ class _LikeGender_screenState extends State<LikeGender_screen> {
                                 children: [
                                   Image.asset(
                                     'assets/male.png',
-                                    color: _isPressed1
+                                    color: _index == 1
                                         ? Colors.blue
                                         : Colors.white24,
                                   ),
@@ -94,7 +93,7 @@ class _LikeGender_screenState extends State<LikeGender_screen> {
                                     "Male",
                                     style: GoogleFonts.alata(
                                       fontWeight: FontWeight.w400,
-                                      color: _isPressed1
+                                      color: _index == 1
                                           ? Colors.blue
                                           : Colors.white24,
                                       fontSize: 25,
@@ -108,7 +107,7 @@ class _LikeGender_screenState extends State<LikeGender_screen> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              _isPressed2 = !_isPressed2;
+                              _index = 2;
                             });
                           },
                           child: Container(
@@ -124,7 +123,7 @@ class _LikeGender_screenState extends State<LikeGender_screen> {
                                 children: [
                                   Image.asset(
                                     'assets/femenine.png',
-                                    color: _isPressed2
+                                    color: _index == 2
                                         ? Colors.pink
                                         : Colors.white24,
                                   ),
@@ -132,7 +131,7 @@ class _LikeGender_screenState extends State<LikeGender_screen> {
                                     "Female",
                                     style: GoogleFonts.alata(
                                       fontWeight: FontWeight.w400,
-                                      color: _isPressed2
+                                      color: _index == 2
                                           ? Colors.pink
                                           : Colors.white24,
                                       fontSize: 25,
@@ -154,7 +153,7 @@ class _LikeGender_screenState extends State<LikeGender_screen> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              _isPressed4 = !_isPressed4;
+                             _index = 3;
                             });
                           },
                           child: Container(
@@ -170,7 +169,7 @@ class _LikeGender_screenState extends State<LikeGender_screen> {
                                 children: [
                                   Image.asset(
                                     'assets/gender.png',
-                                    color: _isPressed4
+                                    color: _index == 3
                                         ? Colors.greenAccent
                                         : Colors.white24,
                                   ),
@@ -178,7 +177,7 @@ class _LikeGender_screenState extends State<LikeGender_screen> {
                                     "Transegender",
                                     style: GoogleFonts.alata(
                                       fontWeight: FontWeight.w400,
-                                      color: _isPressed4
+                                      color: _index == 3
                                           ? Colors.greenAccent
                                           : Colors.white24,
                                       fontSize: 25,

@@ -13,7 +13,7 @@ class User {
     required this.zodiacSign,
     required this.gender,
     required this.tags,
-    required this.dob,
+    required this.age,
     required this.email,
   });
 
@@ -24,7 +24,7 @@ class User {
   String zodiacSign;
   String gender;
   List<String> tags;
-  String dob;
+  String age;
   String email;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
@@ -35,7 +35,7 @@ class User {
         zodiacSign: json["zodiacSign"],
         gender: json["gender"],
         tags: json["tags"],
-        dob: json["dob"],
+        age: json["age"],
         email: json["email"],
       );
 
@@ -51,7 +51,7 @@ class User {
     zodiacSign = json["zodiacSign"];
     gender = json["gender"];
     tags = _tags;
-    dob = json["dob"];
+    age = json["age"];
     email = json["email"];
   }
 
@@ -68,7 +68,7 @@ class User {
       "zodiacSign": zodiacSign,
       "gender": gender,
       "tags": _tagString,
-      "dob": dob,
+      "age": age,
       "email": email,
     };
   }

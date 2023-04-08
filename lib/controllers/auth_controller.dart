@@ -1,22 +1,43 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:graz_project/controllers/user_data_controller.dart';
+import 'package:graz_project/view/screens/home_screen.dart';
+import 'package:page_transition/page_transition.dart';
 
 class AuthController {
   final _firestore = FirebaseFirestore.instance;
   final _firebaseAuth = FirebaseAuth.instance;
 
+  Future<void> createNewUser(String email, String password,BuildContext context) async {
+    String? uid = null;
+      await _firebaseAuth
+          .createUserWithEmailAndPassword(
+              email: email.trim(), password: password.trim())
+          .then((value) => uid = value.user!.uid);
+    if (uid == null) {
+      // Show Dialog
+      return;
+    }
+    UserDataController().setUserId(uid!);
+    await createUserDataDoc(uid!);
+    Navigator.pushAndRemoveUntil(context, PageTransition(
+        type: PageTransitionType.fade,
+        child: HomePage(),
+      ), (route) => false);
+  }
+
   Future<String?> signUserIn(String email, String password) async {
-   try {
+    try {
       String uid = '';
-    await _firebaseAuth
-        .signInWithEmailAndPassword(
-            email: email.trim(), password: password.trim())
-        .then((value) => uid = value.user!.uid);
-    return uid;
-   } on FirebaseAuthException catch (e) {
-     print(e.message);
-   }
+      await _firebaseAuth
+          .signInWithEmailAndPassword(
+              email: email.trim(), password: password.trim())
+          .then((value) => uid = value.user!.uid);
+      return uid;
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+    }
   }
 
   Future<void> getUserDataDoc(String uid) async {

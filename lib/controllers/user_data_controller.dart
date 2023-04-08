@@ -10,8 +10,10 @@ class UserDataController extends GetxController {
       zodiacSign:      "zodiacSign",
       gender:          "gender",
       tags:            [],
-      dob:             "dob",
+      age:             "18",
       email:           "email").obs;
+  
+  static String mainPassword = '';
 
   void setUserName(String name){
     userData.value.userName = name;
@@ -37,8 +39,8 @@ class UserDataController extends GetxController {
     userData.value.gender = gender;
   }
 
-  void setDob(String dob){
-    userData.value.dob = dob;
+  void setAge(String age){
+    userData.value.age = age;
   }
 
   void setEmail(String email){
@@ -50,7 +52,7 @@ class UserDataController extends GetxController {
   }
 
   void removeTagList(String tag){
-    userData.value.tags.add(tag);
+    userData.value.tags.remove(tag);
   }
   
 }

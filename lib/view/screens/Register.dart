@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graz_project/constants/colors.dart';
+import 'package:graz_project/controllers/user_data_controller.dart';
 import 'package:graz_project/view/screens/Likable_gender.dart';
 import 'package:graz_project/view/screens/Login.dart';
 import 'package:page_transition/page_transition.dart';
@@ -12,26 +13,24 @@ class RegistrationForm extends StatefulWidget {
 }
 
 class _RegistrationFormState extends State<RegistrationForm> {
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
-  TextEditingController _addressController = TextEditingController();
-  TextEditingController _countryController = TextEditingController();
-  TextEditingController _pincodeController = TextEditingController();
-  bool _isLoading = false;
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _ageController =
+      TextEditingController();
+  final TextEditingController _genderController = TextEditingController();
+  final bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
-  String _selectedCountry = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       body: _isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -51,7 +50,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               style: GoogleFonts.alata(
                                 fontWeight: FontWeight.bold,
                                 color: Ascolors,
-                                fontSize: 50,
+                                fontSize: 40,
                               ),
                             ),
                           ],
@@ -77,7 +76,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       const SizedBox(
                         height: 40,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         height: 60,
                         width: MediaQuery.of(context).size.width / 1.1,
@@ -95,7 +94,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             ),
                             controller: _nameController,
                             keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               labelText: 'Full Name',
                               labelStyle: TextStyle(color: Colors.white),
                               focusColor: Ascolors,
@@ -110,7 +109,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         height: 60,
                         width: MediaQuery.of(context).size.width / 1.1,
@@ -128,7 +127,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             ),
                             controller: _emailController,
                             keyboardType: TextInputType.emailAddress,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               labelText: 'Email',
                               labelStyle: TextStyle(color: Colors.white),
                               focusColor: Ascolors,
@@ -138,7 +137,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               if (value!.isEmpty) {
                                 return 'Email is required';
                               }
-                              if (!value!.contains('@')) {
+                              if (!value.contains('@')) {
                                 return 'Invalid email format';
                               }
                               return null;
@@ -146,7 +145,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         height: 60,
                         width: MediaQuery.of(context).size.width / 1.1,
@@ -164,7 +163,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             ),
                             controller: _passwordController,
                             obscureText: true,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               labelText: 'Password',
                               labelStyle: TextStyle(color: Colors.white),
                               focusColor: Ascolors,
@@ -174,7 +173,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               if (value!.isEmpty) {
                                 return 'Password is required';
                               }
-                              if (value!.length < 6) {
+                              if (value.length < 6) {
                                 return 'Password must be at least 6 characters long';
                               }
                               return null;
@@ -182,7 +181,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         height: 60,
                         width: MediaQuery.of(context).size.width / 1.1,
@@ -198,27 +197,24 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               color: Ascolors,
                               fontSize: 20,
                             ),
-                            controller: _confirmPasswordController,
-                            obscureText: true,
-                            decoration: InputDecoration(
+                            controller: _ageController,
+                            keyboardType: TextInputType.number,
+                            decoration: const InputDecoration(
                               focusColor: Ascolors,
                               border: InputBorder.none,
-                              labelText: 'Confirm Password',
+                              labelText: 'Age',
                               labelStyle: TextStyle(color: Colors.white),
                             ),
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return 'Confirm Password is required';
-                              }
-                              if (value != _passwordController.text) {
-                                return 'Password and Confirm Password do not match';
+                                return 'Age is required';
                               }
                               return null;
                             },
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         height: 60,
                         width: MediaQuery.of(context).size.width / 1.1,
@@ -234,9 +230,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               color: Ascolors,
                               fontSize: 20,
                             ),
-                            controller: _addressController,
+                            controller: _genderController,
                             keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               focusColor: Ascolors,
                               border: InputBorder.none,
                               labelText: 'Gender',
@@ -246,22 +242,26 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               if (value!.isEmpty) {
                                 return 'Gender is required';
                               }
+                              if (value.trim().toLowerCase() != "male" && value.trim().toLowerCase() != "female") {
+                                return 'Enter Valid Gender';
+                              }
                               return null;
                             },
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       InkWell(
                         onTap: () {
-                          Navigator.push(
+                          if (!_formKey.currentState!.validate()) return;
+                          _submitForm();
+                          Navigator.pushReplacement(
                             context,
                             PageTransition(
                               type: PageTransitionType.fade,
                               child: LikeGender_screen(),
                             ),
                           );
-                          _submitForm();
                         },
                         child: Container(
                           width: 150,
@@ -334,5 +334,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
     );
   }
 
-  void _submitForm() async {}
+  void _submitForm() {
+    
+    final userDataController = UserDataController();
+
+    userDataController.setEmail(_emailController.text.trim());
+    userDataController.setAge(_ageController.text.trim());
+    userDataController.setGender(_genderController.text.trim().toLowerCase());
+    userDataController.setUserName(_nameController.text.trim());
+    UserDataController.mainPassword = _passwordController.text.trim();
+
+    print(UserDataController.userData.value.toJson());
+  }
 }
