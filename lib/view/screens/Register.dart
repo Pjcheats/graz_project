@@ -89,7 +89,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             children: [
                               const SizedBox(),
                               Text(
-                                'And Manage your music with beavert ',
+                                'Join the platform of love',
                                 textAlign: TextAlign.start,
                                 style: GoogleFonts.alata(
                                   fontWeight: FontWeight.w100,

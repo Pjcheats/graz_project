@@ -85,7 +85,7 @@ class _LoginFormState extends State<LoginForm> {
                             children: [
                               SizedBox(),
                               Text(
-                                'Welcome To Admere Community ',
+                                'Welcome To Cloud Crush',
                                 textAlign: TextAlign.start,
                                 style: GoogleFonts.alata(
                                   fontWeight: FontWeight.w100,
