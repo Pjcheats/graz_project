@@ -12,8 +12,8 @@ class SuggestedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children:[ GestureDetector(
+    return Stack(children: [
+      GestureDetector(
         onTap: () {},
         child: VideoViewer(
           autoPlay: true,
@@ -22,74 +22,76 @@ class SuggestedCard extends StatelessWidget {
           source: {
             "SubRip Text": VideoSource(
               video: VideoPlayerController.network(
-                 /* "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4"*/
-                /*"https://assets.mixkit.co/videos/preview/mixkit-blogging-girl-down-the-street-with-his-cell-34487-large.mp4"*/
-                "https://assets.mixkit.co/videos/preview/mixkit-girl-gently-skating-in-a-parking-lot-34548-large.mp4"
-                /*"https://assets.mixkit.co/videos/preview/mixkit-a-woman-walking-on-the-beach-on-a-sunny-day-1208-large.mp4*"*/
-              ),
+                  /* "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4"*/
+                  /*"https://assets.mixkit.co/videos/preview/mixkit-blogging-girl-down-the-street-with-his-cell-34487-large.mp4"*/
+                  "https://assets.mixkit.co/videos/preview/mixkit-girl-gently-skating-in-a-parking-lot-34548-large.mp4"
+                  /*"https://assets.mixkit.co/videos/preview/mixkit-a-woman-walking-on-the-beach-on-a-sunny-day-1208-large.mp4*"*/
+                  ),
             )
           },
         ),
       ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 600,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'Jain',
-                        style: GoogleFonts.alata(
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
-                          fontSize: 50,
-                        ),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 600,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'Jain',
+                      style: GoogleFonts.alata(
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                        fontSize: 50,
                       ),
-                      Text(
-                        ",",
-                        style: GoogleFonts.alata(
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
-                          fontSize: 50,
-                        ),
+                    ),
+                    Text(
+                      ",",
+                      style: GoogleFonts.alata(
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                        fontSize: 50,
                       ),
-                      Text(
-                        '20',
-                        style: GoogleFonts.alata(
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
-                          fontSize: 50,
-                        ),
+                    ),
+                    Text(
+                      '20',
+                      style: GoogleFonts.alata(
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                        fontSize: 50,
                       ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.ac_unit_rounded,color: Colors.white24,),
-                      Text(
-                        ' Cancer',
-                        style: GoogleFonts.alata(
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.ac_unit_rounded,
+                      color: Colors.white24,
+                    ),
+                    Text(
+                      ' Cancer',
+                      style: GoogleFonts.alata(
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                        fontSize: 20,
                       ),
-
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
         ),
+      ),
     ]);
   }
 }

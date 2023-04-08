@@ -16,8 +16,22 @@ class _Letsgo_screenState extends State<Letsgo_screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Container(
-        child: Center(
+      body: Stack(children: [
+        Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/Screenshot 2023-04-08 211116.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+
+        ),
+        Positioned.fill(
+          child: Container(
+            color: Colors.black.withOpacity(0.75),
+          ),
+        ),
+        Center(
           child: Column(
             children: [
               SizedBox(
@@ -97,7 +111,7 @@ class _Letsgo_screenState extends State<Letsgo_screen> {
             ],
           ),
         ),
-      ),
+      ]),
     );
   }
 }

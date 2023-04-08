@@ -7,6 +7,6 @@ class MobileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Letsgo_screen();
+    return HomePage();
   }
 }
