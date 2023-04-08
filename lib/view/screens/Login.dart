@@ -25,7 +25,7 @@ class _LoginFormState extends State<LoginForm> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(''),
+                image: AssetImage('assets/login-bg2.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -33,7 +33,16 @@ class _LoginFormState extends State<LoginForm> {
           ),
           Positioned.fill(
             child: Container(
-              color: Colors.black.withOpacity(0.75),
+              decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors:[
+                  Colors.black.withOpacity(.95),
+                  Colors.black,
+                ] 
+              )
+            ),
             ),
           ),
 
