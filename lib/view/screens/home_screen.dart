@@ -1,15 +1,131 @@
 import 'package:flutter/material.dart';
+import 'package:graz_project/view/widgets/suggested_card.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  // final List<String> videoUrls;
+  // VideoPageView({required this.videoUrls});
+
+  HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+  final _controller = PageController();
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: GestureDetector(
+        onHorizontalDragEnd: (details) {
+          if (details.velocity.pixelsPerSecond.dx > 0) {
+            // Swipe right
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('Right Swipe'),
+                  content: Text('You swiped right.'),
+                );
+              },
+            );
+          } else {
+            // Swipe left
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('Left Swipe'),
+                  content: Text('You swiped left.'),
+                );
+              },
+            );
+          }
+        },
+        child: Column(children: [
+          Padding(
+            padding: const EdgeInsets.all(50.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
+                  Icons.backspace,
+                  size: 30,
+                  color: Colors.white,
+                ),
+                Icon(
+                  Icons.account_circle,
+                  size: 30,
+                  color: Colors.white,
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Container(
+              color: Colors.yellow,
+              child: PageView(
+                controller: _controller,
+                scrollDirection: Axis.vertical,
+                children: [
+                  SuggestedCard(),
+                  SuggestedCard(),
+                  SuggestedCard(),
+                ],
+              ),
+            ),
+          ),
+        ]),
+
+        /* PageView.builder(
+          itemCount: /*widget.videoUrls.length*/ 4,
+          itemBuilder: (context, index) {
+            return Center(
+              child: GestureDetector(
+                onTap: () {
+                  // Open new window when video is tapped
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //  builder: (context) => VideoPlayerPage(videoUrl: videoUrl)));
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    // image: DecorationImage(
+                    // image: NetworkImage(videoUrl),
+                    //  fit: BoxFit.cover,
+                    //),
+                  ),
+                ),
+              ),
+            );
+          },
+          onPageChanged: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          controller: PageController(
+            initialPage: _currentIndex,
+          ),
+        ),*/
+      ),
+    );
+  }
+}
+
+class VideoPlayerPage extends StatelessWidget {
+  final String videoUrl;
+
+  VideoPlayerPage({required this.videoUrl});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text('Video player goes here'),
+      ),
+    );
   }
 }
