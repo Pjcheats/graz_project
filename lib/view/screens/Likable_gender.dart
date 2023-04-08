@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graz_project/view/screens/Login.dart';
 import 'package:graz_project/view/screens/tag.dart';
+import 'package:graz_project/view/screens/zodiac.dart';
 import 'package:page_transition/page_transition.dart';
 
 class LikeGender_screen extends StatefulWidget {
@@ -199,7 +200,7 @@ class _LikeGender_screenState extends State<LikeGender_screen> {
                           context,
                           PageTransition(
                             type: PageTransitionType.fade,
-                            child: tag_screen(),
+                            child: zodic_screen(),
                           ),
                         );
                       },

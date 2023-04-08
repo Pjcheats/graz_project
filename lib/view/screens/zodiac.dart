@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:graz_project/controllers/user_data_controller.dart';
 import 'package:graz_project/view/screens/Login.dart';
 import 'package:graz_project/view/screens/home_screen.dart';
 import 'package:graz_project/view/screens/tag.dart';
@@ -13,578 +14,23 @@ class zodic_screen extends StatefulWidget {
 }
 
 class _zodic_screenState extends State<zodic_screen> {
-  bool _isPressed1 = false;
-  bool _isPressed2 = false;
-  bool _isPressed3 = false;
-  bool _isPressed4 = false;
-  bool _isPressed5 = false;
-  bool _isPressed6 = false;
-  bool _isPressed7 = false;
-  bool _isPressed8 = false;
-  bool _isPressed9 = false;
-  bool _isPressed10 = false;
-  bool _isPressed11 = false;
-  bool _isPressed12 = false;
 
+  int _currentIndex = -1;
+
+  final zodiacList = ["Aries","Aquarius","Cancer","Capricorn","Gemini","Leo","Libra","Pisces","Sagittarius","Scorpius","Taurus","Virgo"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 10,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      Text(
-                        "What Zodiac are you",
-                        style: GoogleFonts.alata(
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
-                          fontSize: 30,
-                        ),
-                      ),
-                      Text(
-                        "Intersted in?",
-                        style: GoogleFonts.alata(
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
-                          fontSize: 30,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(),
-                ],
-              ),
-              SizedBox(
-                height: 70,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed1 = !_isPressed1;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/aries.png',
-                                    color: _isPressed1
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "Aries",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed1
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed2 = !_isPressed2;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/taurus.png',
-                                    color: _isPressed2
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "Taurus",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed2
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed3 = !_isPressed3;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/gemini.png',
-                                    color: _isPressed3
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "Gemini",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed3
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed4 = !_isPressed4;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/cancer.png',
-                                    color: _isPressed4
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "Cancer",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed4
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed5 = !_isPressed5;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/leo.png',
-                                    color: _isPressed5
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "Leo",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed5
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed6 = !_isPressed6;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/virgo.png',
-                                    color: _isPressed6
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "virgo",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed6
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed7 = !_isPressed7;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/libra.png',
-                                    color: _isPressed7
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "libra",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed7
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed8 = !_isPressed8;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/scorpius.png',
-                                    color: _isPressed8
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "scorpius",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed8
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed9 = !_isPressed9;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/sagittarius.png',
-                                    color: _isPressed9
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "sagittarius",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed9
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed10 = !_isPressed10;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/capricorn.png',
-                                    color: _isPressed10
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "capricornus",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed10
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed11 = !_isPressed11;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/aquarius.png',
-                                    color: _isPressed11
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "Aquarius",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed11
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPressed12 = !_isPressed12;
-                            });
-                          },
-                          child: Container(
-                            height: 200,
-                            width: 150,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    'assets/pisces.png',
-                                    color: _isPressed12
-                                        ? Colors.pink
-                                        : Colors.white24,
-                                  ),
-                                  Text(
-                                    "Pisces",
-                                    style: GoogleFonts.alata(
-                                      fontWeight: FontWeight.w400,
-                                      color: _isPressed12
-                                          ? Colors.pink
-                                          : Colors.white24,
-                                      fontSize: 25,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    InkWell(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: InkWell(
                       onTap: () {
+                        UserDataController().setZodiacSign(zodiacList[_currentIndex - 1]);
                         Navigator.pushReplacement(
                           context,
                           PageTransition(
                             type: PageTransitionType.fade,
-                            child: HomePage(),
+                            child: tag_screen(),
                           ),
                         );
                       },
@@ -607,8 +53,76 @@ class _zodic_screenState extends State<zodic_screen> {
                         ),
                       ),
                     ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 10,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              SizedBox(),
+              Column(
+                children: [
+                  Text(
+                    "Your Zodiac Sign ?",
+                    style: GoogleFonts.alata(
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                      fontSize: 30,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 70,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ZodiacCard("Aries", 1),
+                        ZodiacCard("Aquarius",2 ),
+                      ]),
+                      const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ZodiacCard("Cancer", 3),
+                        ZodiacCard("Capricorn",4 ),
+                      ]),const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ZodiacCard("Gemini", 5),
+                        ZodiacCard("Leo",6 ),
+                      ]),const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ZodiacCard("Libra", 7),
+                        ZodiacCard("Pisces",8 ),
+                      ]),const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ZodiacCard("Sagittarius", 9),
+                        ZodiacCard("Scorpius",10 ),
+                      ]),const SizedBox(height: 20),
+                      Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ZodiacCard("Taurus", 11),
+                        ZodiacCard("Virgo",12 ),
+                      ]),
+                    
                     SizedBox(
-                      height: 50,
+                      height: 80,
                     ),
                   ],
                 ),
@@ -618,5 +132,46 @@ class _zodic_screenState extends State<zodic_screen> {
         ),
       ),
     );
+ 
   }
+  Widget ZodiacCard(String label, int index) => GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _currentIndex = index;
+                            });
+                          },
+                          child: Container(
+                            height: 160,
+                            width: 140,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Image.asset(
+                                    'assets/zodiac/${label.toLowerCase()}.png',
+                                    color:  _currentIndex == index
+                                        ? Colors.pink
+                                        : Colors.white24,
+                                        height: 120,
+                                        width: 90,
+                                  ),
+                                  Text(
+                                    label,
+                                    style: GoogleFonts.alata(
+                                      fontWeight: FontWeight.w400,
+                                      color:  _currentIndex == index
+                                          ? Colors.pink
+                                          : Colors.white24,
+                                      fontSize: 25,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ); 
 }
