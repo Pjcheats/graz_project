@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:graz_project/view/widgets/suggested_card.dart';
-import 'package:page_transition/page_transition.dart';
-
-import 'massage.dart';
 
 class HomePage extends StatefulWidget {
   // final List<String> videoUrls;
@@ -23,108 +19,58 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: GestureDetector(
-        child: Stack(children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: 700,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Colors.black,
-                ),
-                child: Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(30),
-                        bottomRight: Radius.circular(30)),
-                    child: PageView(
-                      controller: _controller,
-                      scrollDirection: Axis.vertical,
-                      children: [
-                        SuggestedCard(),
-                        SuggestedCard(),
-                        SuggestedCard(),
-                      ],
-                    ),
+        onHorizontalDragEnd: (details) {
+          if (details.velocity.pixelsPerSecond.dx > 0) {
+            // Swipe right
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('Right Swipe'),
+                  content: Text('You swiped right.'),
+                );
+              },
+            );
+          } else {
+            // Swipe left
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('Left Swipe'),
+                  content: Text('You swiped left.'),
+                );
+              },
+            );
+          }
+        },
+        child: Column(
+          children: [
+            Container(
+              height: 700,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.black,
+              ),
+              child: Expanded(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30)),
+                  child: PageView(
+                    controller: _controller,
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      SuggestedCard(),
+                      SuggestedCard(),
+                      SuggestedCard(),
+                    ],
                   ),
                 ),
               ),
-              SizedBox(
-                height: 40,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.white24),
-                    child: Center(
-                        child: Icon(
-                      Icons.cancel,
-                      color: Colors.white,
-                      size: 30,
-                    )),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.pink),
-                    child: Center(
-                        child: Icon(
-                      Icons.favorite,
-                      color: Colors.white,
-                      size: 30,
-                    )),
-                  ),
-                ],
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Colors.white24),
-                  child: Center(
-                      child: Icon(
-                    Icons.account_circle,
-                    color: Colors.white,
-                    size: 20,
-                  )),
-                ),
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Colors.white24),
-                  child: Center(
-                      child: Icon(
-                    Icons.chat_bubble,
-                    color: Colors.white,
-                    size: 20,
-                  )),
-                ),
-              ],
             ),
-          ),
-        ]),
+          ],
+        ),
 
         /* PageView.builder(
           itemCount: /*widget.videoUrls.length*/ 4,

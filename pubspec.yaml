@@ -19,6 +19,10 @@ dependencies:
   video_viewer: ^1.2.7
   page_transition: ^2.0.9
 
+  firebase_core: ^2.9.0
+  firebase_auth: ^4.4.0
+  cloud_firestore: ^4.5.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -28,8 +32,6 @@ dev_dependencies:
 
 
 flutter:
-
-  
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
