@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graz_project/view/screens/Login.dart';
 import 'package:graz_project/view/screens/home_screen.dart';
 import 'package:graz_project/view/screens/lets_go.dart';
 
@@ -7,6 +8,6 @@ class MobileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomePage();
+    return Letsgo_screen();
   }
 }

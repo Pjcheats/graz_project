@@ -90,11 +90,11 @@ class _tag_screenState extends State<tag_screen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TagChip(tag: "College"),
+                        TagChip(tag: "Drinks"),
                         const SizedBox(width: 10),
-                        TagChip(tag: "Music"),
+                        TagChip(tag: "Fitness"),
                         const SizedBox(width: 10),
-                        TagChip(tag: "Dance"),
+                        TagChip(tag: "Romance"),
                       ],
                     ),
                     SizedBox(
@@ -103,11 +103,13 @@ class _tag_screenState extends State<tag_screen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TagChip(tag: "College"),
+                        TagChip(tag: "Foodie"),
                         const SizedBox(width: 10),
                         TagChip(tag: "Music"),
                         const SizedBox(width: 10),
-                        TagChip(tag: "Dance"),
+                        TagChip(tag: "Breaks"),
+                         const SizedBox(width: 10),
+                        TagChip(tag: "Gamer"),
                       ],
                     ),
                     SizedBox(
@@ -116,11 +118,11 @@ class _tag_screenState extends State<tag_screen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TagChip(tag: "College"),
+                         TagChip(tag: "Kpop"),
                         const SizedBox(width: 10),
                         TagChip(tag: "Music"),
                         const SizedBox(width: 10),
-                        TagChip(tag: "Dance"),
+                        TagChip(tag: "Anime"),
                       ],
                     ),
                     SizedBox(
@@ -129,11 +131,13 @@ class _tag_screenState extends State<tag_screen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TagChip(tag: "College"),
+                        TagChip(tag: "Concert"),
                         const SizedBox(width: 10),
-                        TagChip(tag: "Music"),
+                        TagChip(tag: "Disney"),
                         const SizedBox(width: 10),
-                        TagChip(tag: "Dance"),
+                        TagChip(tag: "Sports"),
+                        const SizedBox(width: 10),
+                        TagChip(tag: "Tea"),
                       ],
                     ),
                     SizedBox(

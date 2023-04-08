@@ -20,7 +20,7 @@ class _Letsgo_screenState extends State<Letsgo_screen> {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/Screenshot 2023-04-08 211116.png'),
+              image: AssetImage('assets/login-bg.png'),
               fit: BoxFit.cover,
             ),
           ),
@@ -28,7 +28,7 @@ class _Letsgo_screenState extends State<Letsgo_screen> {
         ),
         Positioned.fill(
           child: Container(
-            color: Colors.black.withOpacity(0.75),
+            color: Colors.black.withOpacity(0.9),
           ),
         ),
         Center(
@@ -38,7 +38,7 @@ class _Letsgo_screenState extends State<Letsgo_screen> {
                 height: MediaQuery.of(context).size.height / 1.8,
               ),
               Text(
-                "7pm Thursday",
+                "Cloud Crush",
                 style: GoogleFonts.alata(
                   fontWeight: FontWeight.w400,
                   color: Colors.white,
@@ -55,7 +55,7 @@ class _Letsgo_screenState extends State<Letsgo_screen> {
                   Column(
                     children: [
                       Text(
-                        "Get a real 'sense' about the people",
+                        "Get real about the people",
                         style: GoogleFonts.alata(
                           fontWeight: FontWeight.w400,
                           color: Colors.white,
@@ -63,7 +63,7 @@ class _Letsgo_screenState extends State<Letsgo_screen> {
                         ),
                       ),
                       Text(
-                        "you're intrested in first",
+                        "you're intrested in ",
                         style: GoogleFonts.alata(
                           fontWeight: FontWeight.w400,
                           color: Colors.white,
