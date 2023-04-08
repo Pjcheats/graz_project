@@ -33,7 +33,7 @@ class SuggestedCard extends StatelessWidget {
           source: {
             "SubRip Text": VideoSource(
               video: VideoPlayerController.network(
-                  "https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-with-silver-makeup-39875-large.mp4"),
+                  "https://assets.mixkit.co/videos/preview/mixkit-little-girl-next-to-baskets-of-easter-eggs-48596-large.mp4"),
             )
           },
         ),

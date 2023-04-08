@@ -28,26 +28,48 @@ class User {
   String email;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-    userName: json["userName"],
-    userId: json["userId"],
-    videoUrl: json["videoUrl"],
-    profileImageUrl: json["profileImageUrl"],
-    zodiacSign: json["zodiacSign"],
-    gender: json["gender"],
-    tags: json["tags"],
-    dob: json["dob"],
-    email: json["email"],
-  );
+        userName: json["userName"],
+        userId: json["userId"],
+        videoUrl: json["videoUrl"],
+        profileImageUrl: json["profileImageUrl"],
+        zodiacSign: json["zodiacSign"],
+        gender: json["gender"],
+        tags: json["tags"],
+        dob: json["dob"],
+        email: json["email"],
+      );
 
-  Map<String, dynamic> toJson() => {
-    "userName": userName,
-    "userId": userId,
-    "videoUrl": videoUrl,
-    "profileImageUrl": profileImageUrl,
-    "zodiacSign": zodiacSign,
-    "gender": gender,
-    "tags": tags,
-    "dob": dob,
-    "email": email,
-  };
+  fromJson(Map<String, dynamic> json) {
+    var _tags = 
+    json["tags"].toString().split(",");
+
+    
+    userName = json["userName"];
+    userId = json["userId"];
+    videoUrl = json["videoUrl"];
+    profileImageUrl = json["profileImageUrl"];
+    zodiacSign = json["zodiacSign"];
+    gender = json["gender"];
+    tags = _tags;
+    dob = json["dob"];
+    email = json["email"];
+  }
+
+  Map<String, dynamic> toJson() {
+    var _tagString = "";
+    for (String tag in tags) {
+      _tagString += "$tag,";
+    }
+    return {
+      "userName": userName,
+      "userId": userId,
+      "videoUrl": videoUrl,
+      "profileImageUrl": profileImageUrl,
+      "zodiacSign": zodiacSign,
+      "gender": gender,
+      "tags": _tagString,
+      "dob": dob,
+      "email": email,
+    };
+  }
 }
