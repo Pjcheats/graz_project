@@ -57,18 +57,31 @@ class _massage extends State<massage> {
                 ),
               ],
             ),
-            SizedBox(height: 50,),
-            Divider(height: 1.0,color: Colors.white24,),
+            SizedBox(
+              height: 50,
+            ),
+            Divider(
+              height: 1.0,
+              color: Colors.white24,
+            ),
             Container(
               height: 100,
-              child:  Row(
+              child: Row(
                 children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.white24,),
+                  InkWell(
+              
+                    child: Container(
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.white24,
+                      ),
+                    ),
                   ),
-                  SizedBox(width: 20,),
+                  SizedBox(
+                    width: 20,
+                  ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,23 +109,31 @@ class _massage extends State<massage> {
                 ],
               ),
             ),
-            Divider(height: 1.0,color: Colors.white24,),
+            Divider(
+              height: 1.0,
+              color: Colors.white24,
+            ),
             Container(
               height: 100,
-              child:  Row(
+              child: Row(
                 children: [
                   Container(
                     height: 60,
                     width: 60,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.white24,),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Colors.white24,
+                    ),
                   ),
-                  SizedBox(width: 20,),
+                  SizedBox(
+                    width: 20,
+                  ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Alice ',
+                        'Alex ',
                         textAlign: TextAlign.start,
                         style: GoogleFonts.alata(
                           fontWeight: FontWeight.bold,
@@ -121,7 +142,7 @@ class _massage extends State<massage> {
                         ),
                       ),
                       Text(
-                        'How are you ! ',
+                        'Nice ',
                         textAlign: TextAlign.start,
                         style: GoogleFonts.alata(
                           fontWeight: FontWeight.w100,
@@ -134,23 +155,31 @@ class _massage extends State<massage> {
                 ],
               ),
             ),
-            Divider(height: 1.0,color: Colors.white24,),
+            Divider(
+              height: 1.0,
+              color: Colors.white24,
+            ),
             Container(
               height: 100,
-              child:  Row(
+              child: Row(
                 children: [
                   Container(
                     height: 60,
                     width: 60,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: Colors.white24,),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Colors.white24,
+                    ),
                   ),
-                  SizedBox(width: 20,),
+                  SizedBox(
+                    width: 20,
+                  ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Alice ',
+                        'Emy ',
                         textAlign: TextAlign.start,
                         style: GoogleFonts.alata(
                           fontWeight: FontWeight.bold,
@@ -159,7 +188,7 @@ class _massage extends State<massage> {
                         ),
                       ),
                       Text(
-                        'How are you ! ',
+                        'Lets go ! ',
                         textAlign: TextAlign.start,
                         style: GoogleFonts.alata(
                           fontWeight: FontWeight.w100,
@@ -172,7 +201,10 @@ class _massage extends State<massage> {
                 ],
               ),
             ),
-            Divider(height: 1.0,color: Colors.white24,),
+            Divider(
+              height: 1.0,
+              color: Colors.white24,
+            ),
           ],
         ),
       ),
