@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:graz_project/constants/sizes.dart';
 import 'package:graz_project/view/widgets/suggested_card.dart';
 
 class HomePage extends StatefulWidget {
