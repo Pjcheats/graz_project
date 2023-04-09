@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:graz_project/models/user_model.dart';
 import 'package:video_viewer/video_viewer.dart';
 
-class SuggestedCard extends StatelessWidget {
-  SuggestedCard({super.key, this.userInfo});
+class SuggestedCard3 extends StatelessWidget {
+  SuggestedCard3({super.key, this.userInfo});
 
   final User? userInfo;
 
@@ -22,11 +22,10 @@ class SuggestedCard extends StatelessWidget {
           source: {
             "SubRip Text": VideoSource(
               video: VideoPlayerController.network(
-                  /* "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4"*/
-                  /*"https://assets.mixkit.co/videos/preview/mixkit-blogging-girl-down-the-street-with-his-cell-34487-large.mp4"*/
-                  "https://assets.mixkit.co/videos/preview/mixkit-girl-gently-skating-in-a-parking-lot-34548-large.mp4"
-                  /*"https://assets.mixkit.co/videos/preview/mixkit-a-woman-walking-on-the-beach-on-a-sunny-day-1208-large.mp4*"*/
-                  ),
+                /* "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4"*/
+                "https://assets.mixkit.co/videos/preview/mixkit-blogging-girl-down-the-street-with-his-cell-34487-large.mp4"
+                /*"https://assets.mixkit.co/videos/preview/mixkit-a-woman-walking-on-the-beach-on-a-sunny-day-1208-large.mp4*"*/
+              ),
             )
           },
         ),
@@ -46,7 +45,7 @@ class SuggestedCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Alice',
+                      'Alex',
                       style: GoogleFonts.alata(
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
@@ -62,7 +61,7 @@ class SuggestedCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '22',
+                      '20',
                       style: GoogleFonts.alata(
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
@@ -78,7 +77,7 @@ class SuggestedCard extends StatelessWidget {
                       color: Colors.white24,
                     ),
                     Text(
-                      ' Cancer',
+                      ' Lio',
                       style: GoogleFonts.alata(
                         fontWeight: FontWeight.w400,
                         color: Colors.white,

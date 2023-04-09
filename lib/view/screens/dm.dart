@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../constants/colors.dart';
 
@@ -13,10 +14,70 @@ class dm extends StatefulWidget {
 
 class _dm extends State<dm> {
   TextEditingController _dmController = TextEditingController();
+  Map<String, bool> _messageList = {};
+
+  List<Widget> _getMessageTab() {
+    List<Widget> _list = [];
+    _messageList.forEach((key, value) {
+      _list.add(messageCard(key, value));
+    });
+    return _list;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButton: InkWell(
+        onTap: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (BuildContext context) {
+              return Container(
+                  height: 450.0,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                  ),
+                  child: Center(
+                      child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Text(
+                          "What would she like ? ",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),
+                        ),
+                      ),
+                      ItemCard(
+                          "Black Shirt",
+                          "https://m.media-amazon.com/images/I/41Aemtzsa3L._UX569_.jpg",
+                         "https://blog.logrocket.com/launching-urls-flutter-url_launcher/",
+                         // "https://www.amazon.in/OTUS-Cotton-Casual-Solid-XX-Large/dp/B09WKZ2GT2/ref=sr_1_7?keywords=black%2Bshirt&sr=8-7&th=1&psc=1")
+                      )]),
+                  )));
+            },
+          );
+        },
+        child: Container(
+          height: 50,
+          width: 50,
+          margin: EdgeInsets.only(top: 15),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            color: Colors.pink,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Center(
+              child: Icon(Icons.shopping_bag, color: Colors.white),
+            ),
+          ),
+        ),
+      ),
       backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 20),
@@ -32,258 +93,9 @@ class _dm extends State<dm> {
                 fontSize: 40,
               ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(),
-                    Container(
-                      height: 100,
-                      width: 250,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.pink,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Center(
-                          child: Text(
-                            "Hey babe, how's your day going so far?",
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.alata(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    SizedBox(),
-                    Container(
-                      height: 100,
-                      width: 250,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white24,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Center(
-                          child: Text(
-                            "It's going pretty well, thanks for asking! How about yours?",
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.alata(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(),
-                    Container(
-                      height: 150,
-                      width: 280,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.pink,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Center(
-                          child: Text(
-                            "Can't complain, just busy with work as usual. Hey, I was thinking we should try that new Italian place for dinner tonight. What do you think?",
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.alata(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    SizedBox(),
-                    Container(
-                      height: 80,
-                      width: 250,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white24,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Center(
-                          child: Text(
-                            "That sounds great!",
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.alata(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            InkWell(
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return Container(
-                      height: 450.0,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                      ),
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 20.0),
-                                child: Text(
-                                  "She would like this!",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.alata(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 20.0),
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          height: 300,
-                                          width: 175,
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(20),
-                                              color: Colors.white24),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(20.0),
-                                            child: Image(
-                                              image: AssetImage(
-                                                  'assets/pngimg.com - perfume_PNG10301.png'),
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 10,),
-                                        Text(
-                                          "Perfume",
-                                          textAlign: TextAlign.center,
-                                          style: GoogleFonts.alata(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 25.0),
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          height: 300,
-                                          width: 175,
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(20),
-                                              color: Colors.white24),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(20.0),
-                                            child: Image(
-                                              image: AssetImage(
-                                                  'assets/dress_shirt_PNG8117.png'),
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 10,),
-                                        Text(
-                                          "Black Shirt",
-                                          textAlign: TextAlign.center,
-                                          style: GoogleFonts.alata(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                );
-              },
-              child: Container(
-                height: 50,
-                width: 280,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.pink,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Center(
-                    child: Text(
-                      "what She would Like ?",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.alata(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
+            Expanded(
+              child: ListView(
+                children: [..._getMessageTab()],
               ),
             ),
             Row(
@@ -324,15 +136,29 @@ class _dm extends State<dm> {
                     ),
                   ),
                 ),
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Colors.pink),
-                  child: Icon(
-                    Icons.send,
-                    color: Colors.white,
+                InkWell(
+                  onTap: () {
+                    _messageList.addAll({_dmController.text.trim(): true});
+                    Future.delayed(
+                      Duration(seconds: 3),
+                      () {
+                        _messageList.addAll({"Ok": false});
+                        setState(() {});
+                      },
+                    );
+                    _dmController.clear();
+                    setState(() {});
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.pink),
+                    child: Icon(
+                      Icons.send,
+                      color: Colors.white,
+                    ),
                   ),
                 )
               ],
@@ -342,4 +168,104 @@ class _dm extends State<dm> {
       ),
     );
   }
+
+  Widget messageCard(String message, bool send) => Row(
+        mainAxisAlignment:
+            send ? MainAxisAlignment.end : MainAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.all(10),
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(send ? 0 : 20),
+                topLeft: Radius.circular(!send ? 0 : 20),
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+              ),
+              color: send ? Colors.white24 : Colors.pink,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Center(
+                child: Text(
+                  message,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.alata(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+
+  Widget ItemCard(String title, String imgUrl, String shopUrl) => InkWell(
+      onTap: () async {
+        var url = Uri.parse(shopUrl);
+        try{
+          if (await canLaunchUrl(url)) {
+            await launchUrl(url,
+            mode: LaunchMode.externalApplication
+            );
+          } else {
+            throw 'Could not launch $url';
+          }
+        }catch (e){
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Could not launch $url'),
+            ),
+          );
+        }
+
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.white24, borderRadius: BorderRadius.circular(20)),
+        padding: EdgeInsets.all(10),
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.network(
+                imgUrl,
+                height: 100,
+                width: 100,
+                fit: BoxFit.cover,
+              ),
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: GoogleFonts.alata(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "View on Amazon",
+                  style: GoogleFonts.alata(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ));
 }

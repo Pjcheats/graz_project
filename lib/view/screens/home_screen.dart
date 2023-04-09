@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:graz_project/view/screens/massage.dart';
+import 'package:graz_project/view/widgets/2.dart';
 import 'package:graz_project/view/widgets/suggested_card.dart';
 import 'package:page_transition/page_transition.dart';
+
+import '../widgets/3.dart';
+import 'dm.dart';
 
 class HomePage extends StatefulWidget {
   // final List<String> videoUrls;
@@ -41,8 +45,8 @@ class _HomePageState extends State<HomePage> {
                       controller: _controller,
                       scrollDirection: Axis.vertical,
                       children: [
-                        SuggestedCard(),
-                        SuggestedCard(),
+                        SuggestedCard3(),
+                        SuggestedCard2(),
                         SuggestedCard(),
                       ],
                     ),
@@ -108,11 +112,11 @@ class _HomePageState extends State<HomePage> {
                 ),
                 InkWell(
                   onTap: (){
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
                       PageTransition(
                         type: PageTransitionType.fade,
-                        child: massage(),
+                        child: dm(),
                       ),
                     );
                   },
