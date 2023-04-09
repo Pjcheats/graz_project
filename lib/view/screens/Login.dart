@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graz_project/constants/colors.dart';
+import 'package:graz_project/controllers/auth_controller.dart';
+import 'package:graz_project/utils/dialog_util.dart';
 import 'package:graz_project/view/screens/Register.dart';
+import 'package:graz_project/view/screens/home_screen.dart';
+import 'package:graz_project/view/screens/home_screen.dart';
 
 import 'package:page_transition/page_transition.dart';
 
@@ -36,7 +41,7 @@ class _LoginFormState extends State<LoginForm> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                  Colors.black.withOpacity(.95),
+                  Colors.black.withOpacity(.90),
                   Colors.black,
                 ])),
           ),
@@ -246,5 +251,15 @@ class _LoginFormState extends State<LoginForm> {
 
   void _submitForm() async {
     if (!_formKey.currentState!.validate()) return;
+    DialogUtil().ShowCircleIndicator();
+    if (await AuthController().signUserIn(
+            _emailController.text.trim(), _passwordController.text.trim()) ==
+        null) {
+      
+
+      return;
+    }
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (_) => HomePage()), (route) => false);
   }
 }

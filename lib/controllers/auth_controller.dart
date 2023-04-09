@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:graz_project/controllers/user_data_controller.dart';
+import 'package:graz_project/utils/dialog_util.dart';
 import 'package:graz_project/view/screens/home_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -16,7 +17,7 @@ class AuthController {
               email: email.trim(), password: password.trim())
           .then((value) => uid = value.user!.uid);
     if (uid == null) {
-      // Show Dialog
+      DialogUtil().ShowErrorDialog();
       return;
     }
     UserDataController().setUserId(uid!);
@@ -36,6 +37,7 @@ class AuthController {
           .then((value) => uid = value.user!.uid);
       return uid;
     } on FirebaseAuthException catch (e) {
+      DialogUtil().ShowErrorDialog(message: e.message);
       print(e.message);
     }
   }
@@ -50,7 +52,7 @@ class AuthController {
       UserDataController.userData.value.fromJson(userDataMap);
     } catch (e) {
       print(e);
-      // Todo Make Alert Dialog
+      DialogUtil().ShowErrorDialog();
       return null;
     }
   }
@@ -63,7 +65,7 @@ class AuthController {
           .set(UserDataController.userData.value.toJson());
     } catch (e) {
       print(e);
-      // Todo Make Alert Dialog
+      DialogUtil().ShowErrorDialog();
       return null;
     }
   }
@@ -81,7 +83,7 @@ class AuthController {
       return true;
     } catch (e) {
       print(e);
-      // Todo Make Alert Dialog
+      DialogUtil().ShowErrorDialog();
       return null;
     }
   }

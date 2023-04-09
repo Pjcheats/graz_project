@@ -44,7 +44,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors:[
-                  Colors.black.withOpacity(.95),
+                  Colors.black.withOpacity(.90),
                   Colors.black,
                 ] 
               )
