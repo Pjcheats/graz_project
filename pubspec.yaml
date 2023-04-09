@@ -18,7 +18,7 @@ dependencies:
   google_fonts: ^4.0.3
   video_viewer: ^1.2.7
   page_transition: ^2.0.9
-
+  url_launcher: ^6.0.3
   firebase_core: ^2.9.0
   firebase_auth: ^4.4.0
   cloud_firestore: ^4.5.0
