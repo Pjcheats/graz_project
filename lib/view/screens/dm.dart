@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -13,8 +13,19 @@ class dm extends StatefulWidget {
 }
 
 class _dm extends State<dm> {
+
+
+  
   TextEditingController _dmController = TextEditingController();
   Map<String, bool> _messageList = {};
+  int _messageIndex = 0;
+
+  final _messages = [
+
+    "Hey! Wanna go out ??",
+    "is Caster's Cafe Alright ?",
+    "Ok, Monday at 4 "
+  ];
 
   List<Widget> _getMessageTab() {
     List<Widget> _list = [];
@@ -41,23 +52,47 @@ class _dm extends State<dm> {
                   child: Center(
                       child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Column(children: [
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Text(
-                          "What would she like ? ",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                    child: SingleChildScrollView(
+                      child: Column(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Text(
+                            "What would she like ? ",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20),
+                          ),
                         ),
-                      ),
-                      ItemCard(
-                          "Black Shirt",
-                          "https://m.media-amazon.com/images/I/41Aemtzsa3L._UX569_.jpg",
-                         "https://blog.logrocket.com/launching-urls-flutter-url_launcher/",
-                         // "https://www.amazon.in/OTUS-Cotton-Casual-Solid-XX-Large/dp/B09WKZ2GT2/ref=sr_1_7?keywords=black%2Bshirt&sr=8-7&th=1&psc=1")
-                      )]),
+                        ItemCard(
+                            "Black Shirt",
+                            "https://m.media-amazon.com/images/I/41Aemtzsa3L._UX569_.jpg",
+                           "https://blog.logrocket.com/launching-urls-flutter-url_launcher/",
+                           // "https://www.amazon.in/OTUS-Cotton-Casual-Solid-XX-Large/dp/B09WKZ2GT2/ref=sr_1_7?keywords=black%2Bshirt&sr=8-7&th=1&psc=1")
+                        ),
+                        SizedBox(height: 10,),
+                        ItemCard(
+                            "Perfume",
+                            "https://m.media-amazon.com/images/I/31KEFAGHrrL._SX300_SY300_QL70_FMwebp_.jpg",
+                           "https://blog.logrocket.com/launching-urls-flutter-url_launcher/",
+                           // "https://www.amazon.in/OTUS-Cotton-Casual-Solid-XX-Large/dp/B09WKZ2GT2/ref=sr_1_7?keywords=black%2Bshirt&sr=8-7&th=1&psc=1")
+                        ),
+                        SizedBox(height: 10,),
+                        ItemCard(
+                            "Flowers",
+                            "https://m.media-amazon.com/images/I/610LftTfKdL._SY879_.jpg",
+                           "https://blog.logrocket.com/launching-urls-flutter-url_launcher/",
+                           // "https://www.amazon.in/OTUS-Cotton-Casual-Solid-XX-Large/dp/B09WKZ2GT2/ref=sr_1_7?keywords=black%2Bshirt&sr=8-7&th=1&psc=1")
+                        ),
+                        SizedBox(height: 10,),
+                        ItemCard(
+                            "Watch",
+                            "https://m.media-amazon.com/images/I/516LwvihgML._UY679_.jpg",
+                           "https://blog.logrocket.com/launching-urls-flutter-url_launcher/",
+                           // "https://www.amazon.in/OTUS-Cotton-Casual-Solid-XX-Large/dp/B09WKZ2GT2/ref=sr_1_7?keywords=black%2Bshirt&sr=8-7&th=1&psc=1")
+                        ),
+                        ]),
+                    ),
                   )));
             },
           );
@@ -94,7 +129,16 @@ class _dm extends State<dm> {
               ),
             ),
             Expanded(
-              child: ListView(
+              child:_getMessageTab().isEmpty ? 
+              Center(
+                child: Text("No messages",
+                style: TextStyle(
+                  fontSize: 20,
+                  
+                  color: Colors.white24
+                ),),
+              )
+              : ListView(
                 children: [..._getMessageTab()],
               ),
             ),
@@ -124,15 +168,7 @@ class _dm extends State<dm> {
                         focusColor: Colors.white,
                         border: InputBorder.none,
                       ),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Email is required';
-                        }
-                        if (!value.contains('@')) {
-                          return 'Invalid email format';
-                        }
-                        return null;
-                      },
+                     
                     ),
                   ),
                 ),
@@ -142,8 +178,11 @@ class _dm extends State<dm> {
                     Future.delayed(
                       Duration(seconds: 3),
                       () {
-                        _messageList.addAll({"Ok": false});
-                        setState(() {});
+                        _messageList.addAll({_messages[_messageIndex]: false});
+                        _messageIndex++;
+                        setState(() {
+                           
+                        });
                       },
                     );
                     _dmController.clear();
@@ -175,7 +214,7 @@ class _dm extends State<dm> {
         children: [
           Container(
             padding: EdgeInsets.all(10),
-            margin: EdgeInsets.all(10),
+            margin: EdgeInsets.all(5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(send ? 0 : 20),

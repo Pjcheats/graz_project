@@ -1,10 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:graz_project/view/screens/massage.dart';
-import 'package:graz_project/view/widgets/2.dart';
+import 'package:graz_project/models/suggestion_model.dart';
+import 'package:graz_project/utils/dialog_util.dart';
+import 'package:graz_project/view/screens/lets_go.dart';
+
 import 'package:graz_project/view/widgets/suggested_card.dart';
 import 'package:page_transition/page_transition.dart';
 
-import '../widgets/3.dart';
 import 'dm.dart';
 
 class HomePage extends StatefulWidget {
@@ -38,17 +40,15 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: Expanded(
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(30),
                         bottomRight: Radius.circular(30)),
-                    child: PageView(
+                    child: PageView.builder(
+                      itemCount: mockSuggetionList.length,
+                      itemBuilder: (context, index) =>
+                          SuggestedCard(info: mockSuggetionList[index]),
                       controller: _controller,
                       scrollDirection: Axis.vertical,
-                      children: [
-                        SuggestedCard3(),
-                        SuggestedCard2(),
-                        SuggestedCard(),
-                      ],
                     ),
                   ),
                 ),
@@ -75,18 +75,23 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: 20,
                   ),
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.pink),
-                    child: Center(
-                        child: Icon(
-                      Icons.favorite,
-                      color: Colors.white,
-                      size: 30,
-                    )),
+                  InkWell(
+                    onTap: () {
+                      DialogUtil().showLikePopUp();
+                    },
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.pink),
+                      child: Center(
+                          child: Icon(
+                        Icons.favorite,
+                        color: Colors.white,
+                        size: 30,
+                      )),
+                    ),
                   ),
                 ],
               )
@@ -97,21 +102,29 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Colors.white24),
-                  child: Center(
-                      child: Icon(
-                    Icons.account_circle,
-                    color: Colors.white,
-                    size: 20,
-                  )),
+                InkWell(
+                  onTap: () async {
+                    await FirebaseAuth.instance.signOut();
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(builder: (_) => Letsgo_screen()),
+                        (route) => false);
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.white24),
+                    child: Center(
+                        child: Icon(
+                      Icons.account_circle,
+                      color: Colors.white,
+                      size: 20,
+                    )),
+                  ),
                 ),
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     Navigator.push(
                       context,
                       PageTransition(
@@ -172,20 +185,5 @@ class _HomePageState extends State<HomePage> {
             initialPage: _currentIndex,
           ),
         ),*/
-  }
-}
-
-class VideoPlayerPage extends StatelessWidget {
-  final String videoUrl;
-
-  VideoPlayerPage({required this.videoUrl});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Video player goes here'),
-      ),
-    );
   }
 }

@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:graz_project/models/user_model.dart';
+import 'package:graz_project/models/suggestion_model.dart';
 import 'package:video_viewer/video_viewer.dart';
 
 class SuggestedCard extends StatelessWidget {
-  SuggestedCard({super.key, this.userInfo});
+  SuggestedCard({
+    super.key,
+    required this.info,
+  });
+  Suggestion info;
 
-  final User? userInfo;
+  @override
+  void dispose() {
+    // TODO: implement dispose
+  }
 
   final VideoViewerController controller = VideoViewerController();
 
@@ -19,13 +27,21 @@ class SuggestedCard extends StatelessWidget {
           autoPlay: true,
           looping: true,
           controller: controller,
+          enableHorizontalSwapingGesture: false,
+          enableVerticalSwapingGesture: false,
+          enableShowReplayIconAtVideoEnd: false,
+          enableChat: false,
+          enableFullscreenScale: false,
+          onFullscreenFixLandscape: false,
+          
           source: {
             "SubRip Text": VideoSource(
               video: VideoPlayerController.network(
-                  /* "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4"*/
-                  /*"https://assets.mixkit.co/videos/preview/mixkit-blogging-girl-down-the-street-with-his-cell-34487-large.mp4"*/
-                  "https://assets.mixkit.co/videos/preview/mixkit-girl-gently-skating-in-a-parking-lot-34548-large.mp4"
-                  /*"https://assets.mixkit.co/videos/preview/mixkit-a-woman-walking-on-the-beach-on-a-sunny-day-1208-large.mp4*"*/
+                info.videoUrl
+                  // /* "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4"*/
+                  // /*"https://assets.mixkit.co/videos/preview/mixkit-blogging-girl-down-the-street-with-his-cell-34487-large.mp4"*/
+                  // "https://assets.mixkit.co/videos/preview/mixkit-girl-gently-skating-in-a-parking-lot-34548-large.mp4"
+                  // /*"https://assets.mixkit.co/videos/preview/mixkit-a-woman-walking-on-the-beach-on-a-sunny-day-1208-large.mp4*"*/
                   ),
             )
           },
@@ -46,7 +62,7 @@ class SuggestedCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Alice',
+                      "${info.name}, ",
                       style: GoogleFonts.alata(
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
@@ -54,15 +70,7 @@ class SuggestedCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      ",",
-                      style: GoogleFonts.alata(
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
-                        fontSize: 50,
-                      ),
-                    ),
-                    Text(
-                      '22',
+                      info.age.toString(),
                       style: GoogleFonts.alata(
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
@@ -78,7 +86,7 @@ class SuggestedCard extends StatelessWidget {
                       color: Colors.white24,
                     ),
                     Text(
-                      ' Cancer',
+                      ' ${info.sign}',
                       style: GoogleFonts.alata(
                         fontWeight: FontWeight.w400,
                         color: Colors.white,
